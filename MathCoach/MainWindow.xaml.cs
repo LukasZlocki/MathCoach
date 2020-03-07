@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathCoach.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,37 @@ namespace MathCoach
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
+            
+            Draw GenerateRandom = new Draw();
+            ScreenRefresh(GenerateRandom.FirstNumber, GenerateRandom.SecondNumber);
         }
+
+
+        private void ScreenRefresh(int firstNumber, int secondNumber)
+        {
+            txtFirstNumber.Text = "" + firstNumber;
+            txtSecondtNumber.Text = "" + secondNumber;
+            txtResult.Text = "";
+        }
+
+
+        #region Handlers
+
+        // on enter push - calculate if results is ok 
+        private void OnKeyDownHandler (object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                // ToDo : code checking result here
+                MessageBox.Show(" enter key pressed");
+            }
+        }
+
+        #endregion
+
     }
 }
