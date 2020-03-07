@@ -1,0 +1,24 @@
+﻿<Window x:Class="MathCoach.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MathCoach"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="402*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Grid.RowSpan="2">
+            <TextBox x:Name="txtFirstNumber" IsEnabled="false" FontSize="50" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="first number" VerticalAlignment="Top" Height="200" Width="200" Grid.Row="1"/>
+            <TextBox x:Name="txtMathOperation" IsEnabled="false" FontSize="150" TextAlignment="Center" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="x" VerticalAlignment="Top" Height="200" Width="200" Grid.Row="1"/>
+            <TextBox x:Name="txtSecondtNumber" IsEnabled="false" FontSize="50" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="SecondNumber" VerticalAlignment="Top"  Height="200" Width="200" Grid.Row="1"/>
+            <TextBox x:Name="txtIsEqual" IsEnabled="false" FontSize="150" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="=" VerticalAlignment="Top"  Height="200" Width="200" Grid.Row="1"/>
+            <TextBox x:Name="txtResult" FontSize="150" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="?" VerticalAlignment="Top"  Height="200" Width="200" Grid.Row="1"/>
+        </StackPanel>
+       
+
+    </Grid>
+</Window>
