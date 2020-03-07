@@ -3,6 +3,18 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# My Stuff
+MathCoach/App.xaml
+MathCoach/App.xaml.cs
+MathCoach/MathCoach.csproj
+MathCoach/Properties/AssemblyInfo.cs
+MathCoach/Properties/Resources.Designer.cs
+MathCoach/Properties/Resources.resx
+MathCoach/Properties/Settings.Designer.cs
+MathCoach/Properties/Settings.settings
+.gitattributes
+MathCoach.sln
+
 # User-specific files
 *.rsuser
 *.suo
