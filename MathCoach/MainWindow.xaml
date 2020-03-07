@@ -12,9 +12,9 @@
             <RowDefinition Height="402*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Grid.RowSpan="2">
-            <TextBox x:Name="txtFirstNumber" IsEnabled="false" FontSize="50" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="first number" VerticalAlignment="Top" Height="200" Width="200" Grid.Row="1"/>
+            <TextBox x:Name="txtFirstNumber" IsEnabled="false" FontSize="150" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="x" VerticalAlignment="Top" Height="200" Width="200" Grid.Row="1"/>
             <TextBox x:Name="txtMathOperation" IsEnabled="false" FontSize="150" TextAlignment="Center" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="x" VerticalAlignment="Top" Height="200" Width="200" Grid.Row="1"/>
-            <TextBox x:Name="txtSecondtNumber" IsEnabled="false" FontSize="50" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="SecondNumber" VerticalAlignment="Top"  Height="200" Width="200" Grid.Row="1"/>
+            <TextBox x:Name="txtSecondtNumber" IsEnabled="false" FontSize="150" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="x" VerticalAlignment="Top"  Height="200" Width="200" Grid.Row="1"/>
             <TextBox x:Name="txtIsEqual" IsEnabled="false" FontSize="150" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="=" VerticalAlignment="Top"  Height="200" Width="200" Grid.Row="1"/>
             <TextBox x:Name="txtResult" IsEnabled="True" FontSize="150" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="?" VerticalAlignment="Top"  Height="200" Width="200" Grid.Row="1" KeyDown="OnKeyDownHandler" />
         </StackPanel>
