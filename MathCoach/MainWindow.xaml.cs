@@ -26,7 +26,7 @@ namespace MathCoach
         {
             InitializeComponent();
             
-            Draw GenerateRandom = new Draw();
+            Draw GenerateRandom = new Draw("*");
             ScreenRefresh(GenerateRandom.FirstNumber, GenerateRandom.SecondNumber);
         }
 
@@ -38,6 +38,22 @@ namespace MathCoach
             txtResult.Text = "";
         }
 
+        private bool ResultCheck(int firstNumber, int secondNumber, int userResult)
+            
+        {
+            bool _isResultOK;
+
+            int _calculation = firstNumber * secondNumber;
+            if (_calculation == userResult)
+            {
+                _isResultOK = true;
+            }
+            else
+            {
+                _isResultOK = false;
+            }
+            return (_isResultOK);
+        }
 
         #region Handlers
 
@@ -46,8 +62,11 @@ namespace MathCoach
         {
             if (e.Key == Key.Return)
             {
-                // ToDo : code checking result here
-                MessageBox.Show(" enter key pressed");
+                int _firstNumber = Convert.ToInt32(txtFirstNumber.Text);
+                int _secondNumber = Convert.ToInt32(txtSecondtNumber.Text);
+                int _userResult = Convert.ToInt32(txtResult.Text);
+                MessageBox.Show("enter key pressed");
+                ResultCheck(_firstNumber, _secondNumber, _userResult);
             }
         }
 
