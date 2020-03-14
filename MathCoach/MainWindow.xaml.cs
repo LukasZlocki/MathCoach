@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace MathCoach
 {
@@ -22,14 +23,18 @@ namespace MathCoach
     public partial class MainWindow : Window
     {
         Draw Task;
+        Result UserScore = new Result();
 
         public MainWindow()
         {
             InitializeComponent();
             
             Task = new Draw("*");
-            InitialScreenRefresh(Task.FirstNumber, Task.SecondNumber, Task.Action);
+            InitialScreenRefresh(Task.FirstNumber, Task.SecondNumber, Task.Action, UserScore);
         }
+
+
+        #region Screen refresh
 
         /// <summary>
         /// initial screen refreshment - initial view for user
@@ -37,20 +42,24 @@ namespace MathCoach
         /// <param name="firstNumber">first number</param>
         /// <param name="secondNumber">second number</param>
         /// <param name="action">sign like multiple, addition, etc</param>
-        private void InitialScreenRefresh(int firstNumber, int secondNumber, string action)
+        private void InitialScreenRefresh(int firstNumber, int secondNumber, string action, Result userScore)
         {
             txtFirstNumber.Text = "" + firstNumber;
             txtSecondNumber.Text = "" + secondNumber;
             txtMathOperation.Text = action;
             txtResult.Text = "";
             txtIsOK.Text = "";
+
+            txtResultOK.Text = "" + userScore.OK;
+            txtResultNOK.Text = "" + userScore.NOK;
+            
         }
 
         /// <summary>
         /// Screen refreshement after trigger user action (giving result of calculation)
         /// </summary>
         /// <param name="task">Object with task data</param>
-        private void TriggeredScreenRefresh(Draw task)
+        private void TriggeredScreenRefresh(Draw task, Result userScore)
         {
             // cheking user result
             txtFirstNumber.Text = "" + task.FirstNumber;
@@ -67,9 +76,39 @@ namespace MathCoach
                 txtIsOK.Background = Brushes.Red;
                 txtIsOK.Text = "NOK";
             }
-                
+
+            txtResultOK.Text = "" + userScore.OK;
+            txtResultNOK.Text = "" + userScore.NOK;        
         }
-   
+
+        #endregion
+
+
+        /// <summary>
+        /// Wait for 3 seconds
+        /// </summary>
+        private void Wait()
+        {
+            System.Threading.Thread.Sleep(3000);
+        }
+
+        /// <summary>
+        /// Adding user score
+        /// </summary>
+        /// <param name="isGoodResult">bool is user result is good</param>
+        /// <param name="score">reference to object user score </param>
+        private void AddScore(bool isGoodResult, ref Result score)
+        {
+            if (isGoodResult == true)
+            {
+                score.OK = score.OK + 1;
+            }
+            else
+            {
+                score.NOK = score.NOK + 1;
+            }
+        }
+
         #region Handler on txt box trigered by return press
 
         // on enter push - calculate if results is ok 
@@ -78,8 +117,13 @@ namespace MathCoach
             if (e.Key == Key.Return)
             {
                 Task.ImplementUserResultAndCheckIt(Convert.ToInt32(txtResult.Text));
-                //MessageBox.Show("enter key pressed to implement the result");
-                TriggeredScreenRefresh(Task);
+
+                // adding score to user score
+                AddScore(Task.IsUserResultOK, ref UserScore);
+
+                TriggeredScreenRefresh(Task, UserScore);                  
+                Task = new Draw("*");
+                InitialScreenRefresh(Task.FirstNumber, Task.SecondNumber, Task.Action, UserScore);             
             }
         }
 

@@ -32,8 +32,8 @@
             <TextBox x:Name="txtNOK" Background="Transparent" BorderThickness="0" IsEnabled="false" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" TextWrapping="Wrap" Text="NOK" Height="50" Width="100" />
             </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" >
-            <TextBox x:Name="txtResultOK" Background="Transparent" BorderThickness="0" IsEnabled="false" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="50" VerticalAlignment="Center"  Height="100" Width="100" />
-            <TextBox x:Name="txtResultNOK" Background="Transparent" BorderThickness="0" IsEnabled="false" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="60" VerticalAlignment="Center"  Height="100" Width="100" />
+            <TextBox x:Name="txtResultOK" Background="Transparent" BorderThickness="0" IsEnabled="false" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Center"  Height="100" Width="100" />
+            <TextBox x:Name="txtResultNOK" Background="Transparent" BorderThickness="0" IsEnabled="false" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Center"  Height="100" Width="100" />
         </StackPanel>
     </Grid>
 </Window>
