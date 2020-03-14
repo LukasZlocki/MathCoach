@@ -11,15 +11,22 @@ namespace MathCoach.Models
         public int FirstNumber { get; set; }
         public int SecondNumber { get; set; }
 
-        private int boundary = 10;
+        private int MinValue = 0;
+        private int MaxValue = 10;
 
         //constr rtyrty
         public Draw()
         {
             // random ewrwerewr
             Random random = new Random();
-            FirstNumber = random.Next(0, boundary);
-            SecondNumber = random.Next(0, boundary);
+            FirstNumber = random.Next(MinValue, MaxValue);
+            SecondNumber = random.Next(MinValue, MaxValue);
+        }
+
+        public void SetUpDrawRange(int minValue, int maxValue)
+        {
+            minValue = MinValue;
+            maxValue = MaxValue;
         }
 
     }
