@@ -17,7 +17,8 @@ namespace MathCoach.Models
         public int SecondNumber { get; set; }
         public string Action { get; set; }
         public int Result { get; set; }
-        public bool IsResultOK { get; set; } 
+        public int UserResult { get; set; }
+        public bool IsUserResultOK { get; set; } 
 
         private int MinValue = 0;
         private int MaxValue = 10;
@@ -25,7 +26,7 @@ namespace MathCoach.Models
         //constr 
         public Draw(string Action)
         {
-            Action = this.Action;
+            this.Action = Action;
             // random 
             Random random = new Random();
             FirstNumber = random.Next(MinValue, MaxValue);
@@ -33,23 +34,40 @@ namespace MathCoach.Models
             Result = CalculateResult(FirstNumber, SecondNumber, Action);
         }
 
-        public bool CheckResult(int UserResult)
+
+        /// <summary>
+        /// Check if result is ok and store bool into class IsResultOK field
+        /// </summary>
+        /// <param name="UserResult">user result</param>
+        /// <returns>bool if result OK is true/false</returns>
+        public void ImplementUserResultAndCheckIt(int userResult)
         {
-            bool _isResultOK = false;
-            if (UserResult == Result) 
+            this.UserResult = userResult;
+
+            if (Result == userResult) 
             { 
-                _isResultOK = true;
-                IsResultOK = true;
+                IsUserResultOK = true;
             }
             else
             {
-                _isResultOK = false;
-                IsResultOK = false;
+                IsUserResultOK = false;
             }
-
-            return (_isResultOK);
         }
 
+        /// <summary>
+        /// Set up Draw range <-- this is done by user 
+        /// </summary>
+        /// <param name="minValue">minimum value to describe draw range</param>
+        /// <param name="maxValue">maximum value to describe draw range</param>
+        public void SetUpDrawRange(int minValue, int maxValue)
+        {
+            minValue = MinValue;
+            maxValue = MaxValue;
+        }
+
+
+
+        #region Private methods
         private int CalculateResult (int firstNumber, int secondNumber, string action)
         {
             int _result = 0; 
@@ -59,13 +77,9 @@ namespace MathCoach.Models
             if(action == SUBSTRACTION) { _result = firstNumber - secondNumber; };
             return (_result);
         }
+        #endregion
 
 
-        public void SetUpDrawRange(int minValue, int maxValue)
-        {
-            minValue = MinValue;
-            maxValue = MaxValue;
-        }
 
     }
 }
