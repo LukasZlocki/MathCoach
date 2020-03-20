@@ -28,7 +28,9 @@ namespace MathCoach
         public MainWindow()
         {
             InitializeComponent();
-            
+
+            TextBoxFocus();
+
             Task = new Draw("*");
             InitialScreenRefresh(Task.FirstNumber, Task.SecondNumber, Task.Action, UserScore);
         }
@@ -125,6 +127,12 @@ namespace MathCoach
                 Task = new Draw("*");
                 InitialScreenRefresh(Task.FirstNumber, Task.SecondNumber, Task.Action, UserScore);             
             }
+        }
+
+        // focus on user txtbox implementing result during window startup
+        private void TextBoxFocus()
+        {
+            txtResult.Focus();
         }
 
         #endregion
