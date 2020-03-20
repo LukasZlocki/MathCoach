@@ -25,6 +25,9 @@ namespace MathCoach
         Draw Task;
         Result UserScore = new Result();
 
+        private static int MAX_SAMPLE = 30;
+        private int GlobalSampleCount = 0;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -54,7 +57,10 @@ namespace MathCoach
 
             txtResultOK.Text = "" + userScore.OK;
             txtResultNOK.Text = "" + userScore.NOK;
-            
+
+            GlobalSampleCount++;
+            txtTaskCounter.Text = "" + GlobalSampleCount + " / " + MAX_SAMPLE; 
+
         }
 
         /// <summary>
@@ -63,11 +69,6 @@ namespace MathCoach
         /// <param name="task">Object with task data</param>
         private void TriggeredScreenRefresh(Draw task, Result userScore)
         {
-            // cheking user result
-            txtFirstNumber.Text = "" + task.FirstNumber;
-            txtSecondNumber.Text = "" + task.SecondNumber;
-            txtMathOperation.Text = ""+task.Action;
-            txtResult.Text = ""+task.UserResult;
             if (task.IsUserResultOK == true)
             {
                 txtIsOK.Background = Brushes.Green;
@@ -78,9 +79,6 @@ namespace MathCoach
                 txtIsOK.Background = Brushes.Red;
                 txtIsOK.Text = "NOK";
             }
-
-            txtResultOK.Text = "" + userScore.OK;
-            txtResultNOK.Text = "" + userScore.NOK;        
         }
 
         #endregion
@@ -114,7 +112,7 @@ namespace MathCoach
         #region Handler on txt box trigered by return press
 
         // on enter push - calculate if results is ok 
-        private void OnKeyDownHandler (object sender, KeyEventArgs e)
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
@@ -123,9 +121,10 @@ namespace MathCoach
                 // adding score to user score
                 AddScore(Task.IsUserResultOK, ref UserScore);
 
-                TriggeredScreenRefresh(Task, UserScore);                  
+                TriggeredScreenRefresh(Task, UserScore);
+
                 Task = new Draw("*");
-                InitialScreenRefresh(Task.FirstNumber, Task.SecondNumber, Task.Action, UserScore);             
+                InitialScreenRefresh(Task.FirstNumber, Task.SecondNumber, Task.Action, UserScore);
             }
         }
 
