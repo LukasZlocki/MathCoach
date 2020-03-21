@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MathCoach.Models
 {
-    class Result
+    public class Result
     {
         public int OK { get; set; }
         public int NOK { get; set; }
-        List<Draw> DrawList = new List<Draw>();
+        public List<Draw> DrawList = new List<Draw>();
 
         //constr
         public Result()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MathCoach.Models
 {
-    class Draw
+    public class Draw
     {
         private static string MULTIPLICATION = "*";
         private static string DIVISION = "/";

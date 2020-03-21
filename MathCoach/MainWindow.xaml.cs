@@ -136,5 +136,10 @@ namespace MathCoach
 
         #endregion
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SummaryWindow sumWin = new SummaryWindow(UserScore);
+            sumWin.Show();
+        }
     }
 }
