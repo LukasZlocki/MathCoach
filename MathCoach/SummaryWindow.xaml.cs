@@ -1,17 +1,5 @@
 ﻿using MathCoach.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace MathCoach
 {
@@ -47,8 +35,7 @@ namespace MathCoach
                 else
                 {
                     SummaryResult = SummaryResult + result.FirstNumber + " " + result.Action + " " + result.SecondNumber + " = " + result.Result + " NOK --> Twoj wynik : " + result.UserResult + "\n";
-                }
-                
+                }         
             }
         }
 

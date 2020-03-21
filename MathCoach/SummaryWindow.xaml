@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MathCoach"
         mc:Ignorable="d"
-        Title="SummaryWindow" Height="700" Width="450" Background="DarkGray" AllowsTransparency="False" >
+        Title="Summary Window" Height="700" Width="450" Background="DarkGray" AllowsTransparency="False" >
     <Grid>
         <TextBox x:Name="TxtToShow" FontSize="12" TextWrapping="Wrap" Text="TextBox" Height="608" VerticalAlignment="Top"/>
         <Button x:Name="btnRestart" Content="Restart" Margin="0,608,0,0" Click="btnRestart_Click"/>
