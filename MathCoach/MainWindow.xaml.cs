@@ -23,7 +23,7 @@ namespace MathCoach
     public partial class MainWindow : Window
     {
         Draw Task;
-        Result UserScore = new Result();
+        Result UserResults = new Result();
 
         private static int MAX_SAMPLE = 30;
         private int GlobalSampleCount = 0;
@@ -35,7 +35,7 @@ namespace MathCoach
             TextBoxFocus();
 
             Task = new Draw("*");
-            InitialScreenRefresh(Task.FirstNumber, Task.SecondNumber, Task.Action, UserScore);
+            InitialScreenRefresh(Task.FirstNumber, Task.SecondNumber, Task.Action, UserResults);
         }
 
 
@@ -109,7 +109,9 @@ namespace MathCoach
             }
 
             // add draw to list of results
-            UserScore.AddDrawResult(draw);
+            UserResults.AddDrawResult(draw);
+
+           
         }
 
         #region Handler on txt box trigered by return press
@@ -122,12 +124,19 @@ namespace MathCoach
                 Task.ImplementUserResultAndCheckIt(Convert.ToInt32(txtResult.Text));
 
                 // adding score to user score
-                AddScore(Task.IsUserResultOK, ref UserScore, ref Task);
+                AddScore(Task.IsUserResultOK, ref UserResults, ref Task);
 
-                TriggeredScreenRefresh(Task, UserScore);
+                if (GlobalSampleCount == 30)
+                {
+                    ShowWindowWithResults(UserResults);
+                }
 
+                // screen refresh
+                TriggeredScreenRefresh(Task, UserResults);
+
+                // new task for user
                 Task = new Draw("*");
-                InitialScreenRefresh(Task.FirstNumber, Task.SecondNumber, Task.Action, UserScore);
+                InitialScreenRefresh(Task.FirstNumber, Task.SecondNumber, Task.Action, UserResults);
             }
         }
 
@@ -139,9 +148,13 @@ namespace MathCoach
 
         #endregion
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+
+        private void ShowWindowWithResults(Result userResults)
         {
-            SummaryWindow sumWin = new SummaryWindow(UserScore);
+
+            SummaryWindow sumWin = new SummaryWindow(userResults);
+            this.Close();
             sumWin.Show();
         }
     }

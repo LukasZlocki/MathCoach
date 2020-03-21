@@ -36,7 +36,6 @@
             <TextBox x:Name="txtResultOK" Background="Transparent" BorderThickness="0" IsEnabled="false" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Center"  Height="100" Width="100" />
             <TextBox x:Name="txtResultNOK" Background="Transparent" BorderThickness="0" IsEnabled="false" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Center"  Height="100" Width="100" />
             <TextBox x:Name="txtTaskCounter" Background="Transparent" BorderThickness="0" IsEnabled="false" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="0 / 0" VerticalAlignment="Center"  Height="100" Width="130" />
-            <Button Content="Button" Width="75" Height="53" VerticalAlignment="Top" Click="Button_Click"/>
         </StackPanel>
     </Grid>
 </Window>
