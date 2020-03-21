@@ -152,7 +152,6 @@ namespace MathCoach
 
         private void ShowWindowWithResults(Result userResults)
         {
-
             SummaryWindow sumWin = new SummaryWindow(userResults);
             this.Close();
             sumWin.Show();

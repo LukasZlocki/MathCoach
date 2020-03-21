@@ -57,10 +57,13 @@ namespace MathCoach
             TxtToShow.Text = generalResults + summaryResults;
         }
 
+        private void btnRestart_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            this.Close();
+            mainWindow.Show();
 
-      
-
-
+        }
     }
 }
 
