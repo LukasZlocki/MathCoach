@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MathCoach"
         mc:Ignorable="d"
-        Title="SummaryWindow" Height="450" Width="800" Background="DarkGray" AllowsTransparency="False" >
+        Title="SummaryWindow" Height="700" Width="450" Background="DarkGray" AllowsTransparency="False" >
     <Grid>
-        <TextBox x:Name="TxtToShow" HorizontalAlignment="Left" Height="317" Margin="64,59,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="687"/>
+        <TextBox x:Name="TxtToShow" FontSize="12" TextWrapping="Wrap" Text="TextBox"/>
 
     </Grid>
 </Window>

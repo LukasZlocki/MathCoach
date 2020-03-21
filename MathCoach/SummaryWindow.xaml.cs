@@ -30,7 +30,7 @@ namespace MathCoach
         private void ShowSummaryResult(Result UserResult)
         {
             string SummaryResults = "";
-            string GeneralResults = " Wynik OK : " + UserResult.OK + " \n" + "Wynik NOK : " + UserResult.NOK + " \n\n";
+            string GeneralResults = "Wynik OK : " + UserResult.OK + " \n" + "Wynik NOK : " + UserResult.NOK + " \n\n";
             GatherResults(UserResult,ref SummaryResults);
             ShowAllResults(GeneralResults, SummaryResults);
         }
@@ -40,7 +40,15 @@ namespace MathCoach
         {
             foreach (var result in userResult.DrawList)
             {
-                SummaryResult = SummaryResult + result.FirstNumber + " " + result.Action + " " + result.SecondNumber + " = " + result.Result + " --> Twoj wynik : " + result.UserResult + "\n";
+                if (result.IsUserResultOK == true)
+                {
+                    SummaryResult = SummaryResult + result.FirstNumber + " " + result.Action + " " + result.SecondNumber + " = " + result.Result + " OK" + "\n";
+                }
+                else
+                {
+                    SummaryResult = SummaryResult + result.FirstNumber + " " + result.Action + " " + result.SecondNumber + " = " + result.Result + " NOK --> Twoj wynik : " + result.UserResult + "\n";
+                }
+                
             }
         }
 

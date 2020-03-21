@@ -97,7 +97,7 @@ namespace MathCoach
         /// </summary>
         /// <param name="isGoodResult">bool is user result is good</param>
         /// <param name="score">reference to object user score </param>
-        private void AddScore(bool isGoodResult, ref Result score)
+        private void AddScore(bool isGoodResult, ref Result score, ref Draw draw)
         {
             if (isGoodResult == true)
             {
@@ -107,6 +107,9 @@ namespace MathCoach
             {
                 score.NOK = score.NOK + 1;
             }
+
+            // add draw to list of results
+            UserScore.AddDrawResult(draw);
         }
 
         #region Handler on txt box trigered by return press
@@ -119,7 +122,7 @@ namespace MathCoach
                 Task.ImplementUserResultAndCheckIt(Convert.ToInt32(txtResult.Text));
 
                 // adding score to user score
-                AddScore(Task.IsUserResultOK, ref UserScore);
+                AddScore(Task.IsUserResultOK, ref UserScore, ref Task);
 
                 TriggeredScreenRefresh(Task, UserScore);
 
